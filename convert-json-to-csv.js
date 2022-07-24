@@ -1,6 +1,12 @@
 const convertJsonToCsv = (data) => {
     const json = data
-    const fields = Object.keys(json[0])
+    const fields = [
+        'areYou', 'basedIn', 'businessTitle', 'phoneNumber',
+        'arrivalCarrierName', 'arrivalFlightNumber', 'arrivalTime', 'departureCarrierName',
+        'departureFlightNumber', 'departureTime', 'checkIn', 'checkOut', 'smoking',
+        'function', 'nationality', 'passportNumber', 'departingCity', 'departingCountry',
+        'firstName', 'lastName', 'email'
+    ]
     const replacer = function(key, value) { return value === null ? '' : value } 
     let csv = json.map(function(row){
     return fields.map(function(fieldName){
