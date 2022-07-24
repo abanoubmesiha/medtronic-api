@@ -2,11 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const fs = require('fs');
+const cors = require('cors')
 const { convertJsonToCsv } = require('./convert-json-to-csv');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
+
 app.use(bodyParser.json())
+app.use(cors(corsOptions))
 
 app.get('/export', (req, res) => {
     fs.readFile('data.json', (err, data) => {
