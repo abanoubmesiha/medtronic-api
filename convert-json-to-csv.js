@@ -4,7 +4,7 @@ const convertJsonToCsv = (data) => {
         'firstName', 'lastName', 'email',
         'areYouAttending', 'basedIn', 'businessTitle', 'phoneNumber',
         'functionOrCommercial', 'nationality', 'passportNumber', 'departingCity', 'departingCountry',
-        'checkIn', 'checkOut', 'smoking', 'alergies',
+        'checkIn', 'checkOut', 'smoking', 'alergies', 'alergiesNotes',
         'arrivalCarrierName', 'arrivalFlightNumber', 'arrivalTime', 'departureCarrierName',
         'departureFlightNumber', 'departureTime',
         
