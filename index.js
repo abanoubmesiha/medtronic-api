@@ -3,12 +3,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const fs = require('fs');
 const cors = require('cors')
+require('dotenv').config()
 const { convertJsonToCsv } = require('./convert-json-to-csv');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: process.env.ALLOWED_CORS_ORIGIN,
     optionsSuccessStatus: 200
 }
 
