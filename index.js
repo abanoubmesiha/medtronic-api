@@ -8,9 +8,15 @@ const { convertJsonToCsv } = require('./convert-json-to-csv');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const whitelist = JSON.parse(process.env.ALLOWED_CORS_ORIGINS)
 const corsOptions = {
-    origin: process.env.ALLOWED_CORS_ORIGIN,
-    optionsSuccessStatus: 200
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
 
 app.use(bodyParser.json())
