@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const whitelist = JSON.parse(process.env.ALLOWED_CORS_ORIGINS)
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist.indexOf(origin) !== -1 || origin === undefined) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
