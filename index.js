@@ -45,7 +45,7 @@ app.post('/data', (req, res) => {
 
     fs.readFile("data.json", function (err, data) {
         let json = [newData];
-        if (!err) {
+        if (!err && data.length !== 0) {
             json = JSON.parse(data)
             json.push(newData)
         }
@@ -65,5 +65,3 @@ const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
-
-
